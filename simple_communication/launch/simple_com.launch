@@ -1,0 +1,4 @@
+<launch>
+    <node name = "stremaer" pkg = "simple_communication" type= "streamer.py" output ="screen"></node>
+    <node name= "manipulator" pkg = "simple_communication" type= "manipulator.py" output ="screen"></node>
+</launch>
