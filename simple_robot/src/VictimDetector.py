@@ -2,15 +2,15 @@
 import rospy
 from simple_robot_msgs.msg import TemperatureReading
 from simple_robot_msgs.msg import VictimFound
-
+from termcolor import colored
 
 
 
 def victim_check(temperature):
     pub = rospy.Publisher('/data_fusion/victim_found', VictimFound, queue_size=10)
     msg = VictimFound()
-    msg.victim_sensor = "thermal danger"
-    rospy.loginfo(msg.victim_sensor + " at " + str(temperature.temperature))
+    msg.victim_sensor = "thermal"
+    rospy.loginfo(colored(msg.victim_sensor + " at " + str(temperature.temperature), 'yellow'))
     pub.publish(msg)
 
 

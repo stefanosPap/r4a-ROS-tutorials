@@ -8,9 +8,11 @@ project(simple_robot_msgs)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  actionlib
   actionlib_msgs
   message_generation
-  std_msgs 
+  std_msgs
+  genmsg 
 )
 
 ## System dependencies are found with CMake's conventions
