@@ -1,0 +1,7 @@
+<launch>
+    <node name = 'streamer' pkg = 'simple_communication_param' type = 'streamer.py' output = 'screen'>
+        <rosparam command="load" file="$(find simple_communication_param)/parameters.yaml" />
+    </node>
+    <node name = 'manipulator' pkg = 'simple_communication_param' type = 'manipulator.py' output = 'screen'></node>
+    <node name="reconfigure_gui" pkg="dynamic_reconfigure" type="reconfigure_gui" />
+</launch>
