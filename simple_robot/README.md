@@ -1,4 +1,4 @@
-## A More Realistic Task
+##  A More Realistic Task
 
 We assume that a USAR (Urban Search and Rescue) robot exists in a 10x10 grid, at a random position [x,y]. Our robot contains a thermal sensor which measures the current cell’s temperature at each time (thus the temperature is related to the robot’s pose). In order to simulate the sensor we assume that it provides random measurements, uniformly scattered in the [20,40] C range. These measurements are filtered by a ROS node, assuming a threshold for the existence of human presence (e.g. 37 C). When this threshold is surpassed a victim alert is emitted. You should:
 
