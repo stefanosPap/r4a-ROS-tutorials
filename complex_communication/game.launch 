@@ -1,0 +1,5 @@
+<launch>
+	<node name = 'player1' pkg = 'complex_communication' type = 'player1.py'/>
+	<node name = 'player2' pkg = 'complex_communication' type = 'player2.py'/>
+	<node name = 'server' pkg = 'complex_communication' type = 'server.py'/>
+</launch>

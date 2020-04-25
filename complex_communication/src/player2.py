@@ -1,22 +1,39 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import sys
 import rospy
-from complex_communication.srv import *
+import random
+from time import sleep  
+from complex_communication.srv import TicTacToe
 
 def player2(move,turn):
-    rospy.wait_for_service('play')
+    
     try:
         play = rospy.ServiceProxy('play', TicTacToe)
-        play(move, turn) 
+        resp = play(move, turn)
+        return resp
+     
     except rospy.ServiceException:
-        print("Service call failed")
-
+        return 0
+   
 if __name__ == "__main__":
-    if len(sys.argv) == 2:
-        move = int(sys.argv[1])
-    else:
-        print("Give me a move")
-        sys.exit(1)
-    print("Requesting move:{}".format(move))
-    player2(move,turn = 2)
+    rospy.init_node('player2')
+    sleep(1)
+    while True:
+        while True:
+            rospy.wait_for_service('play') 
+            move = random.randint(0,8)
+            print("Player 2 requesting move:{}".format(move))
+            resp = player2(move, turn = 2)
+            if resp == 0:
+                break
+            if resp.validation == True or resp.status == False:
+                break 
+            else:
+                print("Invalid move, please request new move")
+        sleep(2)
+        if resp == 0:
+            break
+        if resp.status == False:
+            break
+

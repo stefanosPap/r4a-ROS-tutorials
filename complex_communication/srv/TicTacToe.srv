@@ -1,4 +1,7 @@
 int16 move
 int16 turn
 ---
-std_msgs/Int16MultiArray table
+int16[] table
+bool status
+bool validation 
+
