@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 import rospy
-from simple_robot_msgs.msg import GetRobotPoseResult, GetRobotPoseAction
+from simple_robot_msgs.msg import GetRobotPoseResult, GetRobotPoseAction, GetRobotPoseGoal
 from simple_robot_msgs.msg import VictimFound
 from termcolor import colored
 
@@ -15,9 +15,10 @@ def pose_client(data):
 
     # Waits until the action server has started up and started listening for goals.
     client.wait_for_server()
-
+    goal = GetRobotPoseGoal()
+    
     # Sends the goal to the action server.
-    client.send_goal(goal = 1)
+    client.send_goal(goal = goal)
 
     # Waits for the server to finish performing the action.
     if client.wait_for_result():
