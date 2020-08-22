@@ -82,17 +82,16 @@ try:
     #    transform.location.z += 2 
     #    spectator.set_transform(transform)
     #    world_snapshot = world.wait_for_tick()
-    rospy.init_node('listener', anonymous=True)
-    rospy.Subscriber('/sec', String, callback)
-    rospy.Subscriber('/mytopic', String, callback2)
+    rospy.init_node('sub', anonymous=True)
+    rospy.Subscriber('/second', String, callback)
+    rospy.Subscriber('/first', String, callback2)
 
     rospy.spin()
     #while True:
     #   signal.signal(signal.SIGINT,signal_handler)
     
-    # --------------
+    
     # Game loop. Prevents the script from finishing.
-    # --------------
 
      
 finally:
